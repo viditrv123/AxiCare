@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={{ background: '#AE275F', color: 'white' }}>
           <div className="container">
             <Link className="navbar-brand" to={'/sign-in'}>
               AxiCare
@@ -30,13 +30,11 @@ function App() {
           </div>
         </nav>
         <div className="auth-wrapper">
-          <div className="auth-inner">
-            <Routes>
-              <Route exact path="/" element={<Login />} />
-              <Route path="/sign-in" element={<Login />} />
-              <Route path="/sign-up" element={<SignUp />} />
-            </Routes>
-          </div>
+          <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route path="/sign-in" element={<Login />} />
+            <Route path="/sign-up" element={<SignUp />} />
+          </Routes>
         </div>
       </div>
     </Router>
