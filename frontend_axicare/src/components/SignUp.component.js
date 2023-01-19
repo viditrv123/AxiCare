@@ -9,13 +9,13 @@ export default class SignUp extends Component {
       // <div className="auth-inner" style={{marginTop: '460px'}}>
       <form>
         <Grid container justifyContent="center">
-          <Grid item xs={2} sm={4} md={4}>
+          <Grid item xs={2} sm={4} md={4} justifyContent="center">
             <SvgIconImage
               src={axiCareLogo}
               alt=""
               h="100"
               w="100"
-              style={{ width: 'fit-content', padding: '0px 100px', marginTop: '80px', textAlign: 'center' }}
+              style={{ width: 'fit-content', padding: '0px 168px', marginTop: '80px', textAlign: 'center' }}
             />
           </Grid>
         </Grid><br />
