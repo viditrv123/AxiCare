@@ -18,53 +18,53 @@ export default class HomePage extends Component {
         <Box style={{ display: 'flex', justifyContent: 'center' }}>
           <span style={{ fontSize: '30px', fontWeight: '100', color: '#5BC6CC' }}>Where we listen to and solve&nbsp;</span><span style={{ fontSize: '30px', color: '#AE275F', fontWeight: '100' }}> all your health-finance needs</span>
         </Box>
-        <Box bgcolor={'#8cc7ca'} mt={8} ml={40} p={3} pt={2} style={{ borderRadius: '40px', display: 'inline-block', color: 'rgb(145 6 63)' }}>
+        <Box bgcolor={'#8cc7ca'} mt={8} ml={40} p={3} pt={2} style={{ borderRadius: '40px', display: 'inline-block', color: 'rgb(174, 39, 95)' }}>
           <Box p={1} style={{ display: 'flex', justifyContent: 'center', color: 'black', fontWeight: 'bold' }}>
             SERVICES
           </Box>
           <ol style={{ margin: 0 }}>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(145 6 63)' }}>
+              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Your appointment books
               </Link>
             </li>
             <li>
-              <Link to={'/doctor-search'} style={{ color: 'rgb(145 6 63)' }}>
+              <Link to={'/doctor-search'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Doctor Search
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(145 6 63)' }}>
+              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Hospital and Bed Search
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(145 6 63)' }}>
+              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Medical History Record
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(145 6 63)' }}>
+              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
                 SOS Help in Emergencies
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(145 6 63)' }}>
+              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Instant Life Insurance
               </Link>
             </li>
             <li>
-              <Link to={'/health-loan'} style={{ color: 'rgb(145 6 63)' }}>
+              <Link to={'/health-loan'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Instant Health Loan
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(145 6 63)' }}>
+              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Health Tracker
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(145 6 63)' }}>
+              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Online Pharmacy
               </Link>
             </li>

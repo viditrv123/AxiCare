@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SvgIconImage from '../utilities/svgImage'
-// import axiCareLogo from '../assets/axiCareLogo.svg'
+import axiCareLogo from '../assets/axiCareLogo.svg'
 import profile from '../assets/Profile.png'
 import chatFrame from '../assets/chatFrame.png'
 import redTick from '../assets/redTick.png'
@@ -28,56 +28,17 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import InputAdornment from '@mui/material/InputAdornment';
 
-export default class HealthLoan extends Component {
+export default class HealthInsurance extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { isAxisBank: 'axisBank', mpinOption: 'custId' }
+    this.state = { insuranceType: 'currentInsurance', insuranceName: '', policyNumber: '', fetchClicked: false }
   }
 
-  doctorDataCards = [{
-    image: '',
-    name: 'Dr. Ankur Pandya',
-    specializations: ['Cardiologist', 'MBBS', 'MD', 'Psychiatrist'],
-    clinicName: 'Care Clinic (Within 5km)',
-    address: 'A-17, Krishna Nagar, delhi',
-    timing: 'Mon - Fri , 10am to 7pm',
-    consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
-    ratings: 4.5
-  },
-  {
-    image: '',
-    name: 'Dr. Vijay Shetty',
-    specializations: ['Cardiologist', 'MBBS', 'MD', 'Physician'],
-    clinicName: 'Care Clinic (Within 5km)',
-    address: 'A-17, Krishna Nagar, Lucknow',
-    timing: 'Mon - Fri , 10am to 7pm',
-    consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
-    ratings: 4.5
-  },
-  {
-    image: '',
-    name: 'Dr. Nirmala Shah',
-    specializations: ['Cardiologist', 'MBBS', 'MD', 'Oncologist'],
-    clinicName: 'Care Clinic (Within 5km)',
-    address: 'A-17, Krishna Nagar, mumbai',
-    timing: 'Mon - Fri , 10am to 7pm',
-    consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
-    ratings: 4.5
-  },
-  {
-    image: '',
-    name: 'Dr. Vidul Sheth',
-    specializations: ['Cardiologist', 'MBBS', 'MD'],
-    clinicName: 'Care Clinic (Within 5km)',
-    address: 'A-17, Krishna Nagar, kolkata',
-    timing: 'Mon - Fri , 10am to 7pm',
-    consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
-    ratings: 4.5
-  }]
+
 
   render() {
-
+    console.log(this.state.fetchClicked);
 
     return (
       <Box pb={4}>
@@ -87,25 +48,89 @@ export default class HealthLoan extends Component {
           <span style={{ fontSize: '115px', fontWeight: '100', color: '#5BC6CC' }}>Axi</span><span style={{ fontSize: '115px', color: '#AE275F', fontWeight: '100' }}>Care</span>
         </Box> */}
         <Box pt={4} mb={3} style={{ display: 'flex', justifyContent: 'center' }}>
-          <span style={{ fontSize: '32px', fontWeight: '100', color: 'black' }}>Instant <span style={{ color: '#5BC6CC' }}>Axi</span><span style={{ color: '#AE275F' }}>Care</span> Loan</span>
+          <span style={{ fontSize: '32px', fontWeight: '100', color: 'black' }}>Insurance</span>
         </Box>
         <Box style={{ borderRadius: '8px' }} bgcolor='#8cc7ca' pb={4} mx={12} mt={4} mb={8}>
-          <Box p={4} style={{ borderBottom: '2px solid black' }}>
+          <Box p={4} pl={16} style={{ borderBottom: '2px solid black' }}>
             <FormControl>
               <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name="radio-buttons-group"
-                style={{ fontWeight: 'bold' }}
-                value={this.state.isAxisBank}
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+                onChange={(e) => this.setState({ insuranceType: e.target.value })}
+                style={{ justifyContent: 'center' }}
+                value={this.state.insuranceType}
               >
-                <FormControlLabel value={'axisBank'} control={<Radio style={{ color: '#AE275F' }} />} style={{ fontWeight: 'bold' }} label="Do you own an Axis Bank Account?" onClick={e => this.setState({ isAxisBank: e.target.value })} />
-                <FormControlLabel value={'otherBank'} control={<Radio style={{ color: '#AE275F' }} />} style={{ fontWeight: 'bold' }} label="Do you want to proceed with other bank account with UPI Id?" onClick={e => this.setState({ isAxisBank: e.target.value })} />
+                <FormControlLabel value={'currentInsurance'} style={{ paddingRight: '200px' }} control={<Radio style={{ color: '#AE275F' }} />} label="Current Insurance" onClick={(e) => this.setState({ insuranceType: e.target.value })} />
+                <FormControlLabel value={'newInsurance'} control={<Radio style={{ color: '#AE275F' }} />} label="New Insurance" onClick={(e) => this.setState({ insuranceType: e.target.value })} />
               </RadioGroup>
             </FormControl>
           </Box>
-          {this.state.isAxisBank === 'axisBank' ? (<Box m={4} p={2} px={14} mx={16} style={{ background: 'rgb(205 231 234)', borderRadius: '16px' }}>
-            <Box style={{ borderBottom: '2px solid black' }} p={2}>
+          {this.state.insuranceType === 'currentInsurance' ? (<Box m={4} mx={16} >
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <Box style={{ background: 'rgb(205 231 234)', borderRadius: '16px' }} p={4}>
+                  <Box py={1}>
+                    <label>Policy Number</label>
+                    <TextField
+                      id='policyNumber'
+                      type="number"
+                      className="form-control"
+                      placeholder='Policy Number'
+                      value={this.state.policyNumber}
+                      onChange={(e) => this.setState({ fetchClicked: false, policyNumber: e.target.value })}
+                      style={{ width: '100%', background: 'white', borderRadius: '8px', border: '1px solid #AE275F' }}
+                    // maxlength='12'
+                    // minlength='12'
+                    />
+                  </Box>
+                  {/* </div> */}
+                  <Box py={1}>
+                    <label>Insurance Name</label>
+                    <TextField
+                      id='insuranceName'
+                      type="text"
+                      className="form-control"
+                      placeholder='Insurance Name'
+                      value={this.state.insuranceName}
+                      onChange={(e) => this.setState({ fetchClicked: false, insuranceName: e.target.value })}
+                      style={{ width: '100%', background: 'white', borderRadius: '8px', border: '1px solid #AE275F' }}
+                    />
+                  </Box>
+                  <Box className="d-grid margin-0-20" style={{ marginTop: '20px' }} px={6}>
+                    <button type="submit" className="btn btn-primary" style={{ background: '#AE275F', height: '50px' }} onClick={() => this.setState({ fetchClicked: true })} disabled={this.state.policyNumber.length < 8 || this.state.insuranceName.length < 8}>
+                      Fetch
+                    </button>
+                  </Box>
+                </Box>
+              </Grid>
+              <Grid item xs={6}>
+                {!this.state.fetchClicked ? (<Box style={{ background: 'rgb(205 231 234)', borderRadius: '16px', height: '331px', textAlign: 'center' }} p={7}>
+                  <SvgIconImage
+                    src={axiCareLogo}
+                    alt=""
+                    h="200"
+                    w="200"
+                    style={{ width: 'fit-content', textAlign: 'center' }}
+                  />
+                </Box>) : (<Box style={{ background: 'rgb(205 231 234)', borderRadius: '16px', height: '331px', textAlign: 'center' }} p={4}>
+                  <Box style={{ borderRadius: '8px' }} mb={4} bgcolor={'white'} px={4} py={2} textAlign={'center'}>
+                    <label style={{ fontSize: '16px' }}>ABC Bank Logo</label><br /><br />
+                    <span style={{ color: 'black' }}>Insurance Name - </span><span style={{ color: '#AE275F' }}>{this.state.insuranceName}</span><br />
+                    <span>Current Insurance Coverage - </span><span style={{ color: '#AE275F' }}>500000</span><br />
+                    <span>Utilized Amount - </span><span style={{ color: '#AE275F' }}>25000</span><br />
+                    <span>Outstanding amount - </span><span style={{ color: '#AE275F' }}>50000</span><br />
+                    <Box className="d-grid margin-0-20" style={{ marginTop: '20px' }} px={6} pt={4}>
+                      <button type="submit" className="btn btn-primary" style={{ background: '#AE275F', height: '50px' }} onClick={() => this.setState({ fetchClicked: true })} disabled={this.state.policyNumber.length < 8 || this.state.insuranceName.length < 8}>
+                        Add
+                      </button>
+                    </Box>
+
+                  </Box>
+                </Box>)}
+              </Grid>
+            </Grid>
+            {/* <Box style={{ borderBottom: '2px solid black' }} p={2}>
               <Grid container justifyContent={'center'}>
                 <Grid item xs={4} justifyContent={'center'} textAlign={'left'}>
                   <span >Login Id</span>
@@ -117,65 +142,8 @@ export default class HealthLoan extends Component {
                   <span style={{ color: '#EB1165' }}>MPIN</span>
                 </Grid>
               </Grid>
-            </Box>
-            <Box p={2}>
-              <FormControl>
-                <label>Select an option</label>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
-                  onChange={(e) => this.setState({ mpinOption: e.target.value })}
-                  style={{ justifyContent: 'center' }}
-                  value={this.state.mpinOption}
-                >
-                  <FormControlLabel value={'custId'} control={<Radio style={{ color: '#AE275F' }} />} label="Customer Id" onClick={(e) => this.setState({ mpinOption: e.target.value })} />
-                  <FormControlLabel value={'mobileNumber'} control={<Radio style={{ color: '#AE275F' }} />} label="Registered Mobile Number" onClick={(e) => this.setState({ mpinOption: e.target.value })} />
-                </RadioGroup>
-              </FormControl>
-              <Grid item xs={2} sm={4} md={4}>
-                {/* <div className="mb-3 margin-0-20"> */}
-                <Box py={1}>
-                  <label>{this.state.mpinOption === 'custID' ? 'Customer Id' : 'Mobile Number'}</label>
-                  <TextField
-                    id='aadhaarNumber'
-                    type="text"
-                    className="form-control"
-                    placeholder={this.state.mpinOption === 'custID' ? 'Customer Id' : 'Mobile Number'}
-                    value={this.state.custId}
-                    onChange={(e) => this.handleChange(e.target)}
-                    style={{ width: '100%', background: 'white', borderRadius: '8px', border: '1px solid #AE275F' }}
-                  // maxlength='12'
-                  // minlength='12'
-                  />
-                </Box>
-                {/* </div> */}
-                <Box py={1}>
-                  <label>{this.state.mpinOption === 'custID' ? 'MPIN' : 'OTP'}</label>
-                  <TextField
-                    id='mPin'
-                    type="number"
-                    className="form-control"
-                    placeholder={this.state.mpinOption === 'custID' ? 'mPin' : 'OTP'}
-                    value={this.state.mPin}
-                    onChange={(e) => this.handleChange(e.target)}
-                    style={{ width: '100%', background: 'white', borderRadius: '8px', border: '1px solid #AE275F' }}
-                  // maxlength='12'
-                  // minlength='12'
-                  />
-                </Box>
-                <Box py={1}>
-                  <button type="submit" className="btn btn-primary" style={{
-                    background: '#AE275F',
-                    height: '44px',
-                    width: '150px',
-                    borderRadius: '8px'
-                  }}>
-                    Submit
-                  </button>
-                </Box>
-              </Grid>
-            </Box>
+            </Box> */}
+
           </Box>) : (<Box m={4} p={2} px={4} mx={16} style={{ background: 'rgb(205 231 234)', borderRadius: '16px' }}>
             <Box>
               <InputLabel id="demo-select-small">Select Bank Account</InputLabel>

@@ -19,7 +19,7 @@ import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
-export default class DoctorSearch extends Component {
+export default class HospitalSearch extends Component {
 
   constructor(props) {
     super(props)
@@ -30,7 +30,7 @@ export default class DoctorSearch extends Component {
 
   doctorDataCards = [{
     image: '',
-    name: 'Dr. Ankur Pandya',
+    name: 'CIMS Hospital',
     specializations: ['Cardiologist', 'MBBS', 'MD', 'Psychiatrist'],
     clinicName: 'Care Clinic (Within 5km)',
     address: 'A-17, Krishna Nagar, delhi',
@@ -40,7 +40,7 @@ export default class DoctorSearch extends Component {
   },
   {
     image: '',
-    name: 'Dr. Vijay Shetty',
+    name: 'Zydus Hospital',
     specializations: ['Cardiologist', 'MBBS', 'MD', 'Physician'],
     clinicName: 'Care Clinic (Within 5km)',
     address: 'A-17, Krishna Nagar, Lucknow',
@@ -50,7 +50,7 @@ export default class DoctorSearch extends Component {
   },
   {
     image: '',
-    name: 'Dr. Nirmala Shah',
+    name: 'Kokilaben Dhirubhai Ambani Hospital',
     specializations: ['Cardiologist', 'MBBS', 'MD', 'Oncologist'],
     clinicName: 'Care Clinic (Within 5km)',
     address: 'A-17, Krishna Nagar, mumbai',
@@ -60,7 +60,7 @@ export default class DoctorSearch extends Component {
   },
   {
     image: '',
-    name: 'Dr. Vidul Sheth',
+    name: 'Apollo Multispeciality Hospital',
     specializations: ['Cardiologist', 'MBBS', 'MD'],
     clinicName: 'Care Clinic (Within 5km)',
     address: 'A-17, Krishna Nagar, kolkata',
@@ -139,7 +139,7 @@ export default class DoctorSearch extends Component {
       </Card ></Grid>
   )
 
-  getFilteredDoctors = () => {
+  getFilteredHospitals = () => {
     const { location, specialization, searchInput } = this.state;
     return this.doctorDataCards.filter(e => e.address.toLocaleLowerCase().includes(location.toLocaleLowerCase()) && e.name.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase()) && (!specialization || e.specializations.includes(specialization)))
   }
@@ -155,7 +155,7 @@ export default class DoctorSearch extends Component {
           <span style={{ fontSize: '115px', fontWeight: '100', color: '#5BC6CC' }}>Axi</span><span style={{ fontSize: '115px', color: '#AE275F', fontWeight: '100' }}>Care</span>
         </Box> */}
         <Box pt={4} mb={3} style={{ display: 'flex', justifyContent: 'center' }}>
-          <span style={{ fontSize: '20px', fontWeight: '100', color: 'black' }}>Lets search for Doctors around you</span>
+          <span style={{ fontSize: '20px', fontWeight: '100', color: 'black' }}>Lets search for Hospitals around you</span>
         </Box>
         <Box mx={10}>
           <Grid container spacing={1}>
@@ -167,7 +167,7 @@ export default class DoctorSearch extends Component {
             /> */}
               <InputLabel id="demo-simple-select-label"
                 placeholder={'Location'}
-              > Search Doctor Name</InputLabel>
+              > Search Hospital Name</InputLabel>
               <TextField id="outlined-search" type="search" style={{ width: '100%' }} value={this.state.searchInput} onChange={(e) => this.setState({ searchInput: e.target.value })} />
             </Grid>
             <Grid item xs={2}>
@@ -182,7 +182,7 @@ export default class DoctorSearch extends Component {
                 placeholder={'Location'}
               >
                 <MenuItem value={''}>Select</MenuItem>
-                <MenuItem value={'Location'}>Your Location</MenuItem>
+                <MenuItem value={'Mumbai'}>Your Location</MenuItem>
                 <MenuItem value={'Delhi'}>Delhi</MenuItem>
                 <MenuItem value={'Mumbai'}>Mumbai</MenuItem>
                 <MenuItem value={'Kolkata'}>Kolkata</MenuItem>
@@ -238,7 +238,7 @@ export default class DoctorSearch extends Component {
             <Grid container spacing={3}
               direction="row"
             >
-              {this.getFilteredDoctors().map(card => { return this.cardData(card) })}
+              {this.getFilteredHospitals().map(card => { return this.cardData(card) })}
             </Grid>
           </Box>
         </Box>

@@ -12,6 +12,13 @@ import profileCircle from './assets/profileCircle.png'
 import HomePage from './components/HomePage.component'
 import DoctorSearch from './components/DoctorSearch.component'
 import HealthLoan from './components/HealthLoan.component'
+import HospitalSearch from './components/HospitalSearch.component'
+import ApplyHealthLoan from './components/ApplyHealthLoan.component'
+import LoanCongratulations from './components/LoanCongratulations.component'
+import TopUpLoanApply from './components/TopUpLoanApply.component'
+import TopUpVideoKyc from './components/TopUpVideoKyc.component'
+import TopUpCongratulations from './components/TopUpCongratulations.component'
+import HealthInsurance from './components/HealthInsurance.component'
 
 function App() {
   return (
@@ -32,12 +39,12 @@ function App() {
             </div>
             <ul class="nav navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link" to={'/sign-in'}>
+                <Link className="nav-link" to={'/doctor-search'}>
                   Doctors
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={'/sign-up'}>
+                <Link className="nav-link" to={'/hospital-search'}>
                   Hospitals
                 </Link>
               </li>
@@ -57,8 +64,18 @@ function App() {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to={'/health-loan'}>
+                  Fino-Instant Loan
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to={'/sign-up'}>
-                  Fino-Services
+                  Fino-Insurance
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={'/sign-up'}>
+                  Join Community
                 </Link>
               </li>
             </ul>
@@ -106,7 +123,14 @@ function App() {
             <Route path="/sign-in" element={<Login />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/doctor-search" element={<DoctorSearch />} />
+            <Route path="/hospital-search" element={<HospitalSearch />} />
             <Route path="/health-loan" element={<HealthLoan />} />
+            <Route path="/loan-apply" element={<ApplyHealthLoan />} />
+            <Route path="/loan-congratulations" element={<LoanCongratulations />} />
+            <Route path="/top-up-loan-apply" element={<TopUpLoanApply />} />
+            <Route path="/top-up-kyc" element={<TopUpVideoKyc />} />
+            <Route path="/top-up-congrats" element={<TopUpCongratulations />} />
+            <Route path="/health-insurance" element={<HealthInsurance />} />
           </Routes>
         </div>
       </div>
