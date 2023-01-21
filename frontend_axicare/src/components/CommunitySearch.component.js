@@ -199,7 +199,7 @@ export default class CommunitySearch extends Component {
                 placeholder={'Location'}
               >
                 <MenuItem value={''}>Select</MenuItem>
-                <MenuItem value={'Location'}>Your Location</MenuItem>
+                <MenuItem value={'Mumbai'}>Your Location</MenuItem>
                 <MenuItem value={'Delhi'}>Delhi</MenuItem>
                 <MenuItem value={'Mumbai'}>Mumbai</MenuItem>
                 <MenuItem value={'Kolkata'}>Kolkata</MenuItem>
