@@ -119,10 +119,6 @@ function App() {
                     w='24'
                     h='24'
                     style={{ border: '1px solid rgb(174, 39, 95)', borderRadius: '16px' }}
-                    onClick={() => {
-                      sessionStorage.setItem('isAuth', false)
-                      window.location.pathname = '/'
-                    }}
                   />
                 </Link>
               </li>

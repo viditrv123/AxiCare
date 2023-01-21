@@ -37,10 +37,10 @@ export default class CommunitySearch extends Component {
     timing: 'Mon - Fri , 10am to 7pm',
     consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
     ratings: 4.5,
-    bankName: 'ABC Bank',
-    sumAssure: '10000',
-    tenure: '5',
-    premiumPerMonth: ['500', '400'],
+    bankName: 'ABC Insurance Pvt Ltd',
+    sumAssure: '700000',
+    tenure: '1',
+    premiumPerMonth: ['500', '450'],
   },
   {
     image: '',
@@ -51,10 +51,10 @@ export default class CommunitySearch extends Component {
     timing: 'Mon - Fri , 10am to 7pm',
     consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
     ratings: 4.5,
-    bankName: 'LKJ Bank',
-    sumAssure: '10000',
-    tenure: '5',
-    premiumPerMonth: ['500', '400'],
+    bankName: 'LKJ Insurance Pvt Ltd',
+    sumAssure: '500000',
+    tenure: '2',
+    premiumPerMonth: ['600', '500'],
 
   },
   {
@@ -66,10 +66,10 @@ export default class CommunitySearch extends Component {
     timing: 'Mon - Fri , 10am to 7pm',
     consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
     ratings: 4.5,
-    bankName: 'XYZ Bank',
-    sumAssure: '10000',
-    tenure: '5',
-    premiumPerMonth: ['500', '400'],
+    bankName: 'XYZ Insurance Pvt Ltd',
+    sumAssure: '1000000',
+    tenure: '1',
+    premiumPerMonth: ['700', '500'],
   }]
 
   cardData = (data) => (
@@ -123,9 +123,9 @@ export default class CommunitySearch extends Component {
               {data.bankName}
             </Box>
             <Box py={2}>
-              <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Sum Assure - <span style={{ color: '#AE275F' }}>{data.sumAssure}</span></Typography>
+              <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Sum Assured - <span style={{ color: '#AE275F' }}>{data.sumAssure}</span></Typography>
               <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Tenure - <span style={{ color: '#AE275F' }}>{data.tenure}</span></Typography>
-              <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Premium per month - <span style={{ color: '#AE275F' }}><del>{data.premiumPerMonth[0]}</del>&nbsp;{data.premiumPerMonth[0]}</span></Typography>
+              <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Premium per month - <span style={{ color: '#AE275F' }}><del>{data.premiumPerMonth[0]}</del>&nbsp;{data.premiumPerMonth[1]}</span></Typography>
 
             </Box>
           </Box>
@@ -184,7 +184,7 @@ export default class CommunitySearch extends Component {
             /> */}
               <InputLabel id="demo-simple-select-label"
                 placeholder={'Location'}
-              > Search Bank Name</InputLabel>
+              > Search Community</InputLabel>
               <TextField id="outlined-search" type="search" style={{ width: '100%', color: 'black' }} value={this.state.searchInput} onChange={(e) => this.setState({ searchInput: e.target.value })} />
             </Grid>
             <Grid item xs={2}>

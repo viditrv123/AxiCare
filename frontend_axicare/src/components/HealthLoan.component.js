@@ -243,7 +243,7 @@ export default class HealthLoan extends Component {
                 width: '150px',
                 borderRadius: '8px'
               }}>
-                <Link to={this.state.isAxisBank === 'axisBank' ? '/loan-apply' : '/health-loan'} style={{ color: 'white', textDecoration: 'none' }}>Submit</Link>
+                <Link to={this.state.isAxisBank === 'axisBank' ? '/loan-apply' : '/tnc'} style={{ color: 'white', textDecoration: 'none' }}>Submit</Link>
               </button>
             </Box>
           </Box>)}
