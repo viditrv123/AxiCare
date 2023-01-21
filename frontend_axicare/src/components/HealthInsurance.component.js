@@ -30,21 +30,21 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 const insurances = [
   {
-    bankName: 'ABC Bank',
+    bankName: 'ABC Insurance Pvt Ltd',
     clainPercent: '97.9%',
     paymentAmount: 802,
     onlineSaving: '15.6k',
     note: 'Includes Extra 5% OFF lifetime (Exclusive for online Customers)'
   },
   {
-    bankName: 'JKL Bank',
+    bankName: 'JKL Insurance Pvt Ltd',
     clainPercent: '99.3%',
     paymentAmount: 987,
     onlineSaving: '7.5k',
     note: 'Includes Extra 5% OFF 1 year (Exclusive for Salaried Customers)'
   },
   {
-    bankName: 'XYZ Bank',
+    bankName: 'XYZ Insurance Pvt Ltd',
     clainPercent: '98.2%',
     paymentAmount: 901,
     onlineSaving: '5.2k',

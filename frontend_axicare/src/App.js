@@ -23,6 +23,8 @@ import HealthyMe from './components/HealthyMe.component'
 import Box from '@mui/material/Box';
 import Tnc from './components/Tnc.component'
 import CommunitySearch from './components/CommunitySearch.component'
+import TopUpLanding from './components/TopUpLanding.component'
+import DoctorProfile from './components/DoctorProfile.component'
 
 function App() {
 
@@ -135,6 +137,7 @@ function App() {
             <Route path="/health-loan" element={<HealthLoan />} />
             <Route path="/loan-apply" element={<ApplyHealthLoan />} />
             <Route path="/loan-congratulations" element={<LoanCongratulations />} />
+            <Route path="/top-up-loan-landing" element={<TopUpLanding />} />
             <Route path="/top-up-loan-apply" element={<TopUpLoanApply />} />
             <Route path="/top-up-kyc" element={<TopUpVideoKyc />} />
             <Route path="/top-up-congrats" element={<TopUpCongratulations />} />
@@ -142,6 +145,7 @@ function App() {
             <Route path="/healthy-me" element={<HealthyMe />} />
             <Route path="/tnc" element={<Tnc />} />
             <Route path="/community-search" element={<CommunitySearch />} />
+            <Route path="/doctor-form" element={<DoctorProfile />} />
           </Routes>
         </div>
       </div>

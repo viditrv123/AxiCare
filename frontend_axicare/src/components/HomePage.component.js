@@ -20,7 +20,7 @@ export default class HomePage extends Component {
           <span style={{ fontSize: '115px', fontWeight: '100', color: '#5BC6CC' }}>Axi</span><span style={{ fontSize: '115px', color: '#AE275F', fontWeight: '100' }}>Care</span>
         </Box>
         <Box style={{ display: 'flex', justifyContent: 'center' }}>
-          <span style={{ fontSize: '30px', fontWeight: '100', color: '#5BC6CC' }}>Where we listen to and solve&nbsp;</span><span style={{ fontSize: '30px', color: '#AE275F', fontWeight: '100' }}> all your health-finance needs</span>
+          <span style={{ fontSize: '30px', fontWeight: '100', color: '#5BC6CC' }}>We <span style={{ fontSize: '30px', fontWeight: '100', color: '#AE275F' }}>care</span> be</span><span style={{ fontSize: '30px', color: '#5BC6CC', fontWeight: '100' }}>cause you <span style={{ fontSize: '30px', fontWeight: '100', color: '#AE275F' }}>care!</span></span>
         </Box>
         <Box bgcolor={'#8cc7ca'} mt={8} ml={40} p={3} pt={2} style={{ borderRadius: '40px', display: 'inline-block', color: 'rgb(174, 39, 95)' }}>
           <Box p={1} style={{ display: 'flex', justifyContent: 'center', color: 'black', fontWeight: 'bold' }}>

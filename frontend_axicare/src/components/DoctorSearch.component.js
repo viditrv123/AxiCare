@@ -18,6 +18,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import { Link } from 'react-router-dom'
 
 export default class DoctorSearch extends Component {
 
@@ -129,10 +130,10 @@ export default class DoctorSearch extends Component {
         <CardActions >
           <Grid container pl={1}>
             <Grid item xs={6}>
-              <Button size="small" style={{ backgroundColor: 'white', color: 'white', padding: '14px', fontSize: '12px' }}>Online Appointment</Button>
+              <Link to='/doctor-form'><Button size="small" style={{ backgroundColor: 'white', color: 'white', padding: '14px', fontSize: '12px', textDecoration: 'none' }}>Online Appointment</Button></Link>
             </Grid>
             <Grid item xs={6}>
-              <Button size="small" style={{ backgroundColor: 'white', color: 'white', padding: '14px', fontSize: '12px' }}>Offline Appointment</Button>
+              <Link to='/doctor-form'> <Button size="small" style={{ backgroundColor: 'white', color: 'white', padding: '14px', fontSize: '12px', textDecoration: 'none' }}>Offline Appointment</Button></Link>
             </Grid>
           </Grid>
         </CardActions>
