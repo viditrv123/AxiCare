@@ -19,61 +19,64 @@ import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
-export default class HospitalSearch extends Component {
+export default class CommunitySearch extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { searchInput: '', location: '', specialization: '' }
+    this.state = { searchInput: '', location: '', communityCatergory: '' }
   }
 
 
 
   doctorDataCards = [{
     image: '',
-    name: 'CIMS Hospital',
-    specializations: ['Cardiologist', 'MBBS', 'MD', 'Psychiatrist'],
+    name: 'Fitter',
+    specializations: ['Fitness', 'Mental Health'],
     clinicName: 'Care Clinic (Within 5km)',
     address: 'A-17, Krishna Nagar, delhi',
     timing: 'Mon - Fri , 10am to 7pm',
     consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
-    ratings: 4.5
+    ratings: 4.5,
+    bankName: 'ABC Bank',
+    sumAssure: '10000',
+    tenure: '5',
+    premiumPerMonth: ['500', '400'],
   },
   {
     image: '',
-    name: 'Zydus Hospital',
-    specializations: ['Cardiologist', 'MBBS', 'MD', 'Physician'],
+    name: 'Fitter',
+    specializations: ['Fitness'],
     clinicName: 'Care Clinic (Within 5km)',
     address: 'A-17, Krishna Nagar, Lucknow',
     timing: 'Mon - Fri , 10am to 7pm',
     consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
-    ratings: 4.5
+    ratings: 4.5,
+    bankName: 'LKJ Bank',
+    sumAssure: '10000',
+    tenure: '5',
+    premiumPerMonth: ['500', '400'],
+
   },
   {
     image: '',
-    name: 'Kokilaben Dhirubhai Ambani Hospital',
-    specializations: ['Cardiologist', 'MBBS', 'MD', 'Oncologist'],
+    name: 'Fitter',
+    specializations: ['Lifestyle'],
     clinicName: 'Care Clinic (Within 5km)',
     address: 'A-17, Krishna Nagar, mumbai',
     timing: 'Mon - Fri , 10am to 7pm',
     consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
-    ratings: 4.5
-  },
-  {
-    image: '',
-    name: 'Apollo Multispeciality Hospital',
-    specializations: ['Cardiologist', 'MBBS', 'MD'],
-    clinicName: 'Care Clinic (Within 5km)',
-    address: 'A-17, Krishna Nagar, kolkata',
-    timing: 'Mon - Fri , 10am to 7pm',
-    consultationFee: ['INR 1000 (Offline)', 'INR 800 (Online)'],
-    ratings: 4.5
+    ratings: 4.5,
+    bankName: 'XYZ Bank',
+    sumAssure: '10000',
+    tenure: '5',
+    premiumPerMonth: ['500', '400'],
   }]
 
   cardData = (data) => (
     <Grid item xs={4}>
       <Card style={{ borderRadius: '16px', display: 'inline-block', backgroundColor: 'rgb(223 87 143)', width: '100%' }}>
         <CardContent>
-          <Box pb={1}>
+          <Box pb={1} style={{ borderBottom: '1px solid black' }}>
             <Grid container spacing={2}>
               <Grid item xs={2}>
                 <SvgIconImage
@@ -85,10 +88,10 @@ export default class HospitalSearch extends Component {
                 />
               </Grid>
               <Grid item xs={8}>
-                <Typography variant="h5" component="div" color='white' style={{ fontSize: '14px' }}>
+                <Typography variant="h5" component="div" color='white' style={{ fontSize: '16px' }}>
                   {data.name}
                 </Typography>
-                <Typography variant="h5" component="div" color='#8cc7ca' style={{ fontSize: '11px' }}>
+                <Typography variant="h5" component="div" color='black' style={{ fontSize: '14px' }}>
                   {data.specializations.map((ele, index) => `${ele}${index !== data.specializations.length - 1 ? ", " : ""}`)}
                 </Typography>
               </Grid>
@@ -103,19 +106,9 @@ export default class HospitalSearch extends Component {
               </Grid>
             </Grid>
           </Box>
-          <Box p={2} bgcolor="white" style={{ borderRadius: '16px' }}>
-            <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '12px', fontWeight: 'bold' }}>Clinic Name - <span style={{ color: '#6a6969' }}>{data.clinicName}</span></Typography>
-            <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '12px', fontWeight: 'bold' }}>Address - <span style={{ color: '#6a6969' }}>{data.address}</span></Typography>
-            <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '12px', fontWeight: 'bold' }}>Timing - <span style={{ color: '#6a6969' }}>{data.timing}</span></Typography>
-            <Grid container>
-              <Grid xs={4} item>
-                <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '12px', fontWeight: 'bold' }}>Consultation Fee -  </Typography></Grid>
-              <Grid xs={8} item>
-                <Typography variant="subtitle1" component="div" color='#6a6969' style={{ fontSize: '12px' }}>{data.consultationFee[0]}</Typography>
-                <Typography variant="subtitle1" component="div" color='#6a6969' style={{ fontSize: '12px' }}>{data.consultationFee[1]}</Typography>
-              </Grid>
-            </Grid>
-            <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '12px', fontWeight: 'bold' }}>Reviews -<span style={{ color: '#6a6969' }}> <Rating
+          <Box p={2}>
+            <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Address - <span style={{ color: 'white' }}>{data.address}</span></Typography>
+            <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Reviews -<span style={{ color: '#AE275F' }}> <Rating
               name="text-feedback"
               value={data.ratings}
               readOnly
@@ -125,23 +118,47 @@ export default class HospitalSearch extends Component {
             />
             </span></Typography>
           </Box>
+          <Box style={{ background: 'white', textAlign: 'center', borderRadius: '8px' }}>
+            <Box style={{ borderBottom: '1px solid black' }} py={1}>
+              {data.bankName}
+            </Box>
+            <Box py={2}>
+              <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Sum Assure - <span style={{ color: '#AE275F' }}>{data.sumAssure}</span></Typography>
+              <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Tenure - <span style={{ color: '#AE275F' }}>{data.tenure}</span></Typography>
+              <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Premium per month - <span style={{ color: '#AE275F' }}><del>{data.premiumPerMonth[0]}</del>&nbsp;{data.premiumPerMonth[0]}</span></Typography>
+
+            </Box>
+          </Box>
+          {/* <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Timing - <span style={{ color: '#AE275F' }}>{data.timing}</span></Typography> */}
+          {/* <Grid container>
+            <Grid xs={4} item>
+              <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Consultation Fee -  </Typography></Grid>
+            <Grid xs={8} item>
+              <Typography variant="subtitle1" component="div" color='#AE275F' style={{ fontSize: '14px' }}>{data.consultationFee[0]}</Typography>
+              <Typography variant="subtitle1" component="div" color='#AE275F' style={{ fontSize: '14px' }}>{data.consultationFee[1]}</Typography>
+            </Grid>
+          </Grid> */}
+          {/* <Typography variant="subtitle1" component="div" color='black' style={{ fontSize: '14px', fontWeight: 'bold' }}>Reviews -<span style={{ color: '#AE275F' }}> <Rating
+            name="text-feedback"
+            value={data.ratings}
+            readOnly
+            precision={0.5}
+            emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+            style={{ fontSize: '15px' }}
+          />
+          </span></Typography> */}
         </CardContent>
         <CardActions >
-          <Grid container pl={1}>
-            <Grid item xs={6}>
-              <Button size="small" style={{ backgroundColor: 'white', color: 'white', padding: '14px', fontSize: '12px' }}>Online Appointment</Button>
-            </Grid>
-            <Grid item xs={6}>
-              <Button size="small" style={{ backgroundColor: 'white', color: 'white', padding: '14px', fontSize: '12px' }}>Offline Appointment</Button>
-            </Grid>
-          </Grid>
+          <Box px={18}>
+            <Button size="small" style={{ backgroundColor: 'white', color: 'white', padding: '14px', fontSize: '14px' }}>Join</Button>
+          </Box>
         </CardActions>
       </Card ></Grid>
   )
 
-  getFilteredHospitals = () => {
-    const { location, specialization, searchInput } = this.state;
-    return this.doctorDataCards.filter(e => e.address.toLocaleLowerCase().includes(location.toLocaleLowerCase()) && e.name.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase()) && (!specialization || e.specializations.includes(specialization)))
+  getFilteredDoctors = () => {
+    const { location, communityCatergory, searchInput } = this.state;
+    return this.doctorDataCards.filter(e => e.address.toLocaleLowerCase().includes(location.toLocaleLowerCase()) && e.bankName.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase()) && (!communityCatergory || e.specializations.includes(communityCatergory)))
   }
 
   render() {
@@ -155,7 +172,7 @@ export default class HospitalSearch extends Component {
           <span style={{ fontSize: '115px', fontWeight: '100', color: '#5BC6CC' }}>Axi</span><span style={{ fontSize: '115px', color: '#AE275F', fontWeight: '100' }}>Care</span>
         </Box> */}
         <Box pt={4} mb={3} style={{ display: 'flex', justifyContent: 'center' }}>
-          <span style={{ fontSize: '20px', fontWeight: '100', color: 'black' }}>Lets search for Hospitals around you</span>
+          <span style={{ fontSize: '20px', fontWeight: '100', color: 'black' }}>Lets search for Community around you</span>
         </Box>
         <Box mx={10}>
           <Grid container spacing={1}>
@@ -167,8 +184,8 @@ export default class HospitalSearch extends Component {
             /> */}
               <InputLabel id="demo-simple-select-label"
                 placeholder={'Location'}
-              > Search Hospital Name</InputLabel>
-              <TextField id="outlined-search" type="search" style={{ width: '100%' }} value={this.state.searchInput} onChange={(e) => this.setState({ searchInput: e.target.value })} />
+              > Search Bank Name</InputLabel>
+              <TextField id="outlined-search" type="search" style={{ width: '100%', color: 'black' }} value={this.state.searchInput} onChange={(e) => this.setState({ searchInput: e.target.value })} />
             </Grid>
             <Grid item xs={2}>
               <InputLabel id="demo-select-small">Location</InputLabel>
@@ -182,7 +199,7 @@ export default class HospitalSearch extends Component {
                 placeholder={'Location'}
               >
                 <MenuItem value={''}>Select</MenuItem>
-                <MenuItem value={'Mumbai'}>Your Location</MenuItem>
+                <MenuItem value={'Location'}>Your Location</MenuItem>
                 <MenuItem value={'Delhi'}>Delhi</MenuItem>
                 <MenuItem value={'Mumbai'}>Mumbai</MenuItem>
                 <MenuItem value={'Kolkata'}>Kolkata</MenuItem>
@@ -191,23 +208,20 @@ export default class HospitalSearch extends Component {
             </Grid>
             <Grid item xs={2}>
               <Box ml={3}>
-                <InputLabel id="demo-select-small">Specialization</InputLabel>
+                <InputLabel id="demo-select-small">Category Of Community</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={this.state.specialization}
+                  value={this.state.communityCatergory}
                   // label="Age"
-                  onChange={(e) => { this.setState({ specialization: e.target.value }) }}
+                  onChange={(e) => { this.setState({ communityCatergory: e.target.value }) }}
                   style={{ width: '100%' }}
                   placeholder={'Location'}
                 >
                   <MenuItem value={''}>Select</MenuItem>
-                  <MenuItem value={'Psychiatrist'}>Psychiatrist</MenuItem>
-                  <MenuItem value={'Physician'}>Physician</MenuItem>
-                  <MenuItem value={'Oncologist'}>Oncologist</MenuItem>
-                  <MenuItem value={'Cardiologist'}>Cardiologist</MenuItem>
-                  <MenuItem value={'MBBS'}>MBBS</MenuItem>
-                  <MenuItem value={'MD'}>MD</MenuItem>
+                  <MenuItem value={'Fitness'}>Fitness</MenuItem>
+                  <MenuItem value={'Mental Health'}>Mental Health</MenuItem>
+                  <MenuItem value={'Lifestyle'}>Lifestyle</MenuItem>
                 </Select>
               </Box>
             </Grid>
@@ -234,11 +248,11 @@ export default class HospitalSearch extends Component {
           }}>
             Results
           </Box>
-          <Box p={3}>
+          <Box p={3} pt={1}>
             <Grid container spacing={3}
               direction="row"
             >
-              {this.getFilteredHospitals().map(card => { return this.cardData(card) })}
+              {this.getFilteredDoctors().map(card => { return this.cardData(card) })}
             </Grid>
           </Box>
         </Box>

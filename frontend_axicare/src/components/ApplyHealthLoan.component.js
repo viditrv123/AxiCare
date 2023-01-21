@@ -150,7 +150,7 @@ export default class ApplyHealthLoan extends Component {
               width: '150px',
               borderRadius: '8px'
             }}>
-              Submit
+              <Link to='/loan-congratulations' style={{ color: 'white', textDecoration: 'none' }}>Submit</Link>
             </button>
           </Box>
         </Box >

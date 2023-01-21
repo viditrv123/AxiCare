@@ -19,8 +19,15 @@ import TopUpLoanApply from './components/TopUpLoanApply.component'
 import TopUpVideoKyc from './components/TopUpVideoKyc.component'
 import TopUpCongratulations from './components/TopUpCongratulations.component'
 import HealthInsurance from './components/HealthInsurance.component'
+import HealthyMe from './components/HealthyMe.component'
+import Box from '@mui/material/Box';
+import Tnc from './components/Tnc.component'
+import CommunitySearch from './components/CommunitySearch.component'
 
 function App() {
+
+  const isAuth = sessionStorage.getItem('isAuth')
+  console.log(isAuth);
   return (
     <Router>
       <div className="App">
@@ -48,34 +55,35 @@ function App() {
                   Hospitals
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={'/sign-up'}>
-                  Healthy Me
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={'/sign-up'}>
-                  About Us
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={'/sign-up'}>
-                  Contact Us
-                </Link>
-              </li>
+
               <li className="nav-item">
                 <Link className="nav-link" to={'/health-loan'}>
                   Fino-Instant Loan
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={'/sign-up'}>
+                <Link className="nav-link" to={'/health-insurance'}>
                   Fino-Insurance
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={'/sign-up'}>
+                <Link className="nav-link" to={'/community-search'}>
                   Join Community
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={'/healthy-me'}>
+                  Healthy Me
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={'/'}>
+                  About Us
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={'/'}>
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -111,6 +119,10 @@ function App() {
                     w='24'
                     h='24'
                     style={{ border: '1px solid rgb(174, 39, 95)', borderRadius: '16px' }}
+                    onClick={() => {
+                      sessionStorage.setItem('isAuth', false)
+                      window.location.pathname = '/'
+                    }}
                   />
                 </Link>
               </li>
@@ -120,7 +132,7 @@ function App() {
         <div className="auth-wrapper" style={{ display: 'block', justifyContent: 'normal', paddingTop: '68px' }}>
           <Routes>
             <Route exact path="/" element={<HomePage />} />
-            <Route path="/sign-in" element={<Login />} />
+            <Route exact path="/sign-in" element={<Login />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/doctor-search" element={<DoctorSearch />} />
             <Route path="/hospital-search" element={<HospitalSearch />} />
@@ -131,6 +143,9 @@ function App() {
             <Route path="/top-up-kyc" element={<TopUpVideoKyc />} />
             <Route path="/top-up-congrats" element={<TopUpCongratulations />} />
             <Route path="/health-insurance" element={<HealthInsurance />} />
+            <Route path="/healthy-me" element={<HealthyMe />} />
+            <Route path="/tnc" element={<Tnc />} />
+            <Route path="/community-search" element={<CommunitySearch />} />
           </Routes>
         </div>
       </div>

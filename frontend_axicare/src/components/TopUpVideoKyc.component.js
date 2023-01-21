@@ -5,6 +5,7 @@ import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import SvgIconImage from '../utilities/svgImage'
 import vKyc from '../assets/vKyc.png'
+import { Link } from 'react-router-dom'
 import Checkbox from '@mui/material/Checkbox';
 export default class TopUpVideoKyc extends Component {
 
@@ -48,7 +49,7 @@ export default class TopUpVideoKyc extends Component {
                 borderRadius: '8px'
               }}
                 disabled={!this.state.termsAccepted}>
-                Submit
+                <Link to='/top-up-congrats' style={{ color: 'white', textDecoration: 'none' }}>Submit</Link>
               </button>
             </Box>
           </Box>

@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom'
 
 const PrettoSlider = styled(Slider)({
   color: '#AE275F',
@@ -127,7 +128,7 @@ export default class TopUpLoanApply extends Component {
               width: '150px',
               borderRadius: '8px'
             }}>
-              Submit
+              <Link to='/top-up-kyc' style={{ color: 'white', textDecoration: 'none' }}>Submit</Link>
             </button>
           </Box>
         </Box >

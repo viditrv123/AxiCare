@@ -32,7 +32,14 @@ export default class HealthLoan extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { isAxisBank: 'axisBank', mpinOption: 'custId' }
+    this.state = {
+      isAxisBank: 'axisBank',
+      mpinOption: 'custId',
+      custId: '',
+      mobileNumber: '',
+      mpin: '',
+      otp: ''
+    }
   }
 
   doctorDataCards = [{
@@ -76,6 +83,10 @@ export default class HealthLoan extends Component {
     ratings: 4.5
   }]
 
+  handleChange = (e) => {
+    this.setState({ [e.id]: e.value })
+  }
+
   render() {
 
 
@@ -89,7 +100,7 @@ export default class HealthLoan extends Component {
         <Box pt={4} mb={3} style={{ display: 'flex', justifyContent: 'center' }}>
           <span style={{ fontSize: '32px', fontWeight: '100', color: 'black' }}>Instant <span style={{ color: '#5BC6CC' }}>Axi</span><span style={{ color: '#AE275F' }}>Care</span> Loan</span>
         </Box>
-        <Box style={{ borderRadius: '8px' }} bgcolor='#8cc7ca' pb={4} mx={12} mt={4} mb={8}>
+        <Box style={{ borderRadius: '8px', boxShadow: '0px 4px 4px #AE275F' }} bgcolor='#8cc7ca' pb={4} mx={12} mt={4} mb={8}>
           <Box p={4} style={{ borderBottom: '2px solid black' }}>
             <FormControl>
               <RadioGroup
@@ -136,13 +147,13 @@ export default class HealthLoan extends Component {
               <Grid item xs={2} sm={4} md={4}>
                 {/* <div className="mb-3 margin-0-20"> */}
                 <Box py={1}>
-                  <label>{this.state.mpinOption === 'custID' ? 'Customer Id' : 'Mobile Number'}</label>
+                  <label>{this.state.mpinOption === 'custId' ? 'Customer Id' : 'Mobile Number'}</label>
                   <TextField
-                    id='aadhaarNumber'
+                    id={this.state.mpinOption === 'custId' ? 'custId' : 'mobileNumber'}
                     type="text"
                     className="form-control"
-                    placeholder={this.state.mpinOption === 'custID' ? 'Customer Id' : 'Mobile Number'}
-                    value={this.state.custId}
+                    placeholder={this.state.mpinOption === 'custId' ? 'Customer Id' : 'Mobile Number'}
+                    value={this.state.mpinOption === 'custId' ? this.state.custId : this.state.mobileNumber}
                     onChange={(e) => this.handleChange(e.target)}
                     style={{ width: '100%', background: 'white', borderRadius: '8px', border: '1px solid #AE275F' }}
                   // maxlength='12'
@@ -151,16 +162,16 @@ export default class HealthLoan extends Component {
                 </Box>
                 {/* </div> */}
                 <Box py={1}>
-                  <label>{this.state.mpinOption === 'custID' ? 'MPIN' : 'OTP'}</label>
+                  <label>{this.state.mpinOption === 'custId' ? 'MPIN' : 'OTP'}</label>
                   <TextField
-                    id='mPin'
+                    id={this.state.mpinOption === 'custId' ? 'mpin' : 'otp'}
                     type="number"
                     className="form-control"
-                    placeholder={this.state.mpinOption === 'custID' ? 'mPin' : 'OTP'}
-                    value={this.state.mPin}
+                    placeholder={this.state.mpinOption === 'custId' ? 'mpin' : 'OTP'}
+                    value={this.state.mpinOption === 'custId' ? this.state.mpin : this.state.otp}
                     onChange={(e) => this.handleChange(e.target)}
                     style={{ width: '100%', background: 'white', borderRadius: '8px', border: '1px solid #AE275F' }}
-                  // maxlength='12'
+                    maxlength='10'
                   // minlength='12'
                   />
                 </Box>
@@ -170,8 +181,10 @@ export default class HealthLoan extends Component {
                     height: '44px',
                     width: '150px',
                     borderRadius: '8px'
-                  }}>
-                    Submit
+                  }}
+                    disabled={this.state.mpinOption === 'custId' ? this.state.custId.length < 8 || this.state.mpin.length < 6 : this.state.mobileNumber.length < 8 || this.state.otp.length < 6}
+                  >
+                    <Link to='/loan-apply' style={{ color: 'white', textDecoration: 'none' }}>Submit</Link>
                   </button>
                 </Box>
               </Grid>
@@ -200,11 +213,11 @@ export default class HealthLoan extends Component {
             <Box py={1}>
               <label>Enter UPI ID</label>
               <TextField
-                id='aadhaarNumber'
+                id='mpin'
                 type="email"
                 className="form-control"
                 placeholder="Enter UPI ID"
-                value={this.state.mPin}
+                value={this.state.mpin}
                 onChange={(e) => this.handleChange(e.target)}
                 style={{ width: '100%', background: 'white', borderRadius: '8px', border: '1px solid #AE275F' }}
                 InputProps={{
@@ -230,7 +243,7 @@ export default class HealthLoan extends Component {
                 width: '150px',
                 borderRadius: '8px'
               }}>
-                Submit
+                <Link to={this.state.isAxisBank === 'axisBank' ? '/loan-apply' : '/health-loan'} style={{ color: 'white', textDecoration: 'none' }}>Submit</Link>
               </button>
             </Box>
           </Box>)}

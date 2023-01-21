@@ -9,6 +9,7 @@ import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Box from '@mui/material/Box';
 import RadioGroup from '@mui/material/RadioGroup';
+import Button from '@mui/material/Button';
 export default class SignUp extends Component {
 
   constructor(props) {
@@ -179,9 +180,14 @@ export default class SignUp extends Component {
         <Grid container justifyContent="center">
           <Grid item xs={2} sm={4} md={4}>
             <div className="d-grid margin-0-20" style={{ marginTop: '20px' }}>
-              <button type="submit" className="btn btn-primary" style={{ background: '#AE275F' }}>
+              <Button className="btn btn-primary" style={{ background: '#AE275F', textDecoration: 'none', color: 'white' }}
+                onClick={e => {
+                  sessionStorage.setItem("userDetails", JSON.stringify({ email: this.state.userDetails.email, password: this.state.userDetails.password, firstName: "Shanaaya", lastName: 'Shah' }))
+                  this.setState({ isAuth: true })
+                  window.location.pathname = '/'
+                }}>
                 Submit
-              </button>
+              </Button>
             </div>
           </Grid>
         </Grid>

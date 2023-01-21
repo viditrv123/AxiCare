@@ -7,6 +7,10 @@ import Box from '@mui/material/Box';
 // import Grid from '@mui/material/Grid';
 
 export default class HomePage extends Component {
+  componentDidMount() {
+    const isAuth = sessionStorage.getItem('isAuth')
+    console.log(isAuth);
+  }
   render() {
     return (
       <Box>
@@ -23,33 +27,33 @@ export default class HomePage extends Component {
             SERVICES
           </Box>
           <ol style={{ margin: 0 }}>
-            <li>
+            {/* <li>
               <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Your appointment books
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to={'/doctor-search'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Doctor Search
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
+              <Link to={'/hospital-search'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Hospital and Bed Search
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
+              <Link to={'/'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Medical History Record
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
+              <Link to={'/'} style={{ color: 'rgb(174, 39, 95)' }}>
                 SOS Help in Emergencies
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
+              <Link to={'/health-insurance'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Instant Life Insurance
               </Link>
             </li>
@@ -59,12 +63,12 @@ export default class HomePage extends Component {
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
+              <Link to={'/healthy-me'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Health Tracker
               </Link>
             </li>
             <li>
-              <Link to={'/sign-up'} style={{ color: 'rgb(174, 39, 95)' }}>
+              <Link to={'/'} style={{ color: 'rgb(174, 39, 95)' }}>
                 Online Pharmacy
               </Link>
             </li>

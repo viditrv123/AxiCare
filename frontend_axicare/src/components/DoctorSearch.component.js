@@ -224,7 +224,7 @@ export default class DoctorSearch extends Component {
             </Grid>
           </Grid>
         </Box>
-        <Box style={{ borderRadius: '8px' }} bgcolor='#8cc7ca' mx={12} mt={4} mb={8}>
+        <Box style={{ borderRadius: '8px', boxShadow: '0px 4px 4px #AE275F' }} bgcolor='#8cc7ca' mx={12} mt={4} mb={8}>
           <Box p={3} style={{
             fontSize: '24px',
             fontWeight: '700',
